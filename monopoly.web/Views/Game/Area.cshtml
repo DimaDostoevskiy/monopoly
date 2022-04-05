@@ -1,0 +1,14 @@
+﻿@using monopoly.web.Controllers;
+@model IEnumerable<Result>
+@{
+	ViewData["Title"] = "Area";
+}
+
+<div class="area" onclick="ClickOnArea()" >
+	@foreach (var item in Model)
+	{
+		<img onclick="ClickOnElement(@item.Id)" id="@item.Name" class="@item.Class" alt="planet1" src="@item.ImagePath"
+		style="left: @(item.PositionX)px; top: @(item.PositionY)px;">
+	}
+	<div id="cardInfo" hidden="true"></div>
+</div>
