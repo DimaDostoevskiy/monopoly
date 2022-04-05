@@ -4,11 +4,11 @@
 	ViewData["Title"] = "Area";
 }
 
-<div class="area" onclick="ClickOnArea()" >
+<div class="area" onclick="ClickOnArea(event)">
 	@foreach (var item in Model)
 	{
-		<img onclick="ClickOnElement(@item.Id)" id="@item.Name" class="@item.Class" alt="planet1" src="@item.ImagePath"
+		<img class="@item.Class" onclick="ClickOnElement(event, @item.Name)" id="@item.Name"  alt="planet1" src="@item.ImagePath"
 		style="left: @(item.PositionX)px; top: @(item.PositionY)px;">
 	}
-	<div id="cardInfo" hidden="true"></div>
+	<div id="cardInfo" class="cardInfo"></div>
 </div>

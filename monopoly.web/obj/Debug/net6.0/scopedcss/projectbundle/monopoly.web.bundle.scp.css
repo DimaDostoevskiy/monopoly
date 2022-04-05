@@ -1,26 +1,3 @@
-/* _content/monopoly.web/Views/Game/Area.cshtml.rz.scp.css */
-.base-class[b-x60yj9kc8o]{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-
-}
-.area[b-x60yj9kc8o]{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px; 
-    top: 0px;
-    padding: 0px;
-    margin: 0px;
-    background-color: rgba(71, 157, 163, 0.87);
-}
-.cardInfo[b-x60yj9kc8o]{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(8, 8, 8, 0.5);
-}
 /* _content/monopoly.web/Views/Shared/_Layout.cshtml.rz.scp.css */
 
 .navbar[b-urqbetjkgl]{

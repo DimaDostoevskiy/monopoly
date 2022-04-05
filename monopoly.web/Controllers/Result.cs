@@ -10,10 +10,10 @@ public class Result
     public Result(int id, int x, int y, string name, string imagePath, string cssClass = "")
     {
         Id = id;
+        Name = name;
         PositionX = x;
         PositionY = y;
         ImagePath = imagePath;
-        Name = name;
         Class = "base-class " + cssClass;
     }
 }

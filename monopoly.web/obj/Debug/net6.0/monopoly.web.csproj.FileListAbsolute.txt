@@ -35,4 +35,3 @@ C:\Projects\monopoly\monopoly.web\bin\Debug\net6.0\Serilog.Formatting.Compact.dl
 C:\Projects\monopoly\monopoly.web\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
 C:\Projects\monopoly\monopoly.web\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
 C:\Projects\monopoly\monopoly.web\bin\Debug\net6.0\Serilog.Sinks.File.dll
-C:\Projects\monopoly\monopoly.web\obj\Debug\net6.0\scopedcss\Views\Game\Area.cshtml.rz.scp.css

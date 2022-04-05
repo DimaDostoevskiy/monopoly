@@ -1,67 +1,68 @@
-function ClickOnElement(id) {
-
+function ClickOnElement(event, name) {
+  
   var card = document.getElementById("cardInfo");
-  var xhr = new XMLHttpRequest();
+  var elem = document.getElementById(name.id);
 
-  card.hidden = false;
+  card.hidden = true;
+  console.log("name: " + name.id);
 
-  var url = "https://localhost:7232/Game/Info/" + id;
+  var url = "https://localhost:7232/Game/Info?name=" + name.id;
 
-  xhr.open("GET", url, false);
-  xhr.send(null);
-
-  var response = xhr.responseText;
+  var response = httpGet(url);
+  
   var arrJson = JSON.parse('[' + response + ']');
 
   card.innerText = arrJson[0].name;
 
-  console.log("Info: " +  arrJson[0].name);
+  card.style.left = elem.style.left;
+  card.style.top  = elem.style.top;
+
+  console.log("response: " +  response);
   document.body.appendChild(card);
 }
 
 function ClickOnArea(event) {
 
   var hero = document.getElementById("hero");
+  var card = document.getElementById("cardInfo");
+  card.hidden = false;
   var e = event;
+  let der = "";
 
   var heroX = parseInt(hero.style.left);
   var heroY = parseInt(hero.style.top);
   var cursorX = e.clientX;
   var cursorY = e.clientY;
 
-  var der = "";
-
-  console.log("CursorX: " + cursorX);
-  console.log("CursorY: " + cursorY);
-  console.log("HeroX: " + heroX);
-  console.log("HeroY: " + heroY);
-
+  // console.log("CursorX: " + cursorX);
+  // console.log("CursorY: " + cursorY);
+  // console.log("HeroX: " + heroX);
+  // console.log("HeroY: " + heroY);
+  
   if(cursorX > heroX) {
-    der += "up";
+    der += "2";
   }
   else {
-    der += "down";
+    der += "4";
   }
   if(cursorY > heroY) {
-    der += "left";
+    der += "3";
   }
   else {
-    der += "reight";
-  }``
+    der += "1";
+  }
 
-  var moveUrl = "https://localhost:7232/Game/Move?derection=" + der + "&id=" + 4;
+  var a = hero.id;
+
+  var moveUrl = "https://localhost:7232/Game/Move?derection=" + der + "&name=" + a;
 
   var response = httpGet(moveUrl);
-  console.log(response);
+  // console.log(response);
 
   var arrJson = JSON.parse("[" + response + "]");
 
-  console.log(arrJson[0].name);
-  console.log(arrJson[0].positionX);
-  console.log(arrJson[0].positionY);
-
-  hero.style.left = arrJson[0].positionY + "px";
-  hero.style.top = arrJson[0].positionX + "px";
+  hero.style.left = arrJson[0].positionX + "px";
+  hero.style.top = arrJson[0].positionY + "px";
 }
 
 function httpGet(url) {
@@ -71,14 +72,13 @@ function httpGet(url) {
   return xmlHttp.responseText;
 }
 
-// function printMousePos(event) {
-//   document.body.textContent =
-//     "clientX: " + event.clientX +
-//     " - clientY: " + event.clientY;
-// }
-
-document.addEventListener("click", ClickOnArea);
-
+function rightclick() {
+  var rightclick;
+  var e = window.event;
+  if (e.which) rightclick = (e.which == 3);
+  else if (e.button) rightclick = (e.button == 2);
+  alert(rightclick); // true or false, you can trap right click here by if comparison
+}
 // function httpPost(url, object) {
 //   var result = "";
 //   xmlhttp = new XMLHttpRequest();
@@ -92,9 +92,6 @@ document.addEventListener("click", ClickOnArea);
 //     }
 //   }
 //   // var parameters = JSON.stringify(object);
-//   xmlHttp.send("Id=1&lName=Smith")
-//   // xmlhttp.send(object);
-//   // console.log("send: " + parameters);
-//   console.log("response: " + xmlhttp.responseTex);
+//   xmlHttp.send(parameters)
 //   return result;
 // }

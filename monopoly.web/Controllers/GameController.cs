@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Serilog;
-using System.Text.Encodings.Web;
+
 namespace monopoly.web.Controllers;
 public class GameController : Controller
 {
@@ -10,48 +10,43 @@ public class GameController : Controller
         new Result(3, 100, 200,"planet3","https://www.pngmart.com/files/3/Space-Planet-PNG-HD.png", "planet"),
         new Result(4, 300, 300,"hero","https://www.citypng.com/public/uploads/preview/hd-cartoon-illustration-flying-rocket-png-31629804671iyeioqeuju.png", "hero"),
         };
-        
+
     public GameController()
     {
     }
-
-    [HttpGet]
-    public JsonResult Move(string derection, int id)
+    public JsonResult Move(string derection, string name)
     {
-        Log.Logger.Warning($"id : {id} | derection : {derection}");
+        Log.Logger.Warning($" Move id : {name} | derection : {derection}");
 
-        var obj = db.FirstOrDefault(x => x.Id == id);
+        var obj = db.FirstOrDefault(x => x.Name == name);
 
         if (obj == null) return Json(null);
 
-        if(derection.Contains("up"))
+        if (derection.Contains("1"))
         {
             obj.PositionY -= 50;
         }
-        if(derection.Contains("down"))
+        if (derection.Contains("2"))
+        {
+            obj.PositionX += 50;
+        }
+        if (derection.Contains("3"))
         {
             obj.PositionY += 50;
         }
-        if(derection.Contains("left"))
+        if (derection.Contains("4"))
         {
-            obj.PositionY += 50;
-        }
-        if(derection.Contains("reight"))
-        {
-            obj.PositionY += 50;
+            obj.PositionX -= 50;
         }
         return Json(obj);
     }
 
-    [HttpGet]
-    public IActionResult Area()
-    {
-        return View(db);
-    }
+    public IActionResult Area() => View(db);
 
-    [HttpGet]
-    public IActionResult Info(int? id)
+    public JsonResult Info(string? name)
     {
-        return (id == null) ? BadRequest() : Json(db.FirstOrDefault(x => x.Id == id));
+        Log.Logger.Warning($" Info id : {name} ");
+        if(name == null) return Json(null);
+        return Json(db.FirstOrDefault(x => x.Name == name));
     }
 }
