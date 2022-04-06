@@ -16,8 +16,8 @@ else
 {
 	@foreach (var item in Model)
 	{
-		<img src="@Url.Content("~/img/planet4.png")" alt="@item.Name" class="base-class @item.Class" onclick="ClickOnElement(event, @item.Name)" id="@item.Name" 
+		<img id="@item.Name" src="@Url.Content(item.ImagePath)" alt="@item.Name" class="base-class @item.Class" onclick="ClickOnElement(@item.Name)" 
 	 style="left: @(item.PositionX)px; top: @(item.PositionY)px;">
 	}
-	<div id="cardInfo" class="base-class cardInfo" hidden="true"></div>
+	<div id="cardInfo" class="base-class cardInfo"></div>
 }

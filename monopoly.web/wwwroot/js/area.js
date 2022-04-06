@@ -1,10 +1,7 @@
-function ClickOnElement(event, name) {
+function ClickOnElement(name) {
 
   var card = document.getElementById("cardInfo");
   var elem = document.getElementById(name.id);
-
-  console.log("name: " + name.id);
-  console.log(card);
 
   var url = "https://localhost:7232/Game/Info?name=" + name.id;
 
@@ -18,7 +15,7 @@ function ClickOnElement(event, name) {
   card.style.top  = parseInt(elem.style.top) + 25 + "px"
 
   console.log("response: " +  response);
-  // document.body.appendChild(card);
+  document.body.appendChild(card);
 }
 
 function ClickOnArea(event) {
@@ -54,13 +51,11 @@ function ClickOnArea(event) {
   hero.style.left = arrJson[0].positionX + "px";
   hero.style.top = arrJson[0].positionY + "px";
 
-  console.log(response);
+  // console.log(response);
 
   if (arrJson[0].getUrl != null) {
     window.location.href = arrJson[0].getUrl;
   }
-
-  console.log(arrJson[0].getUrl);
 }
 
 function httpGet(url) {

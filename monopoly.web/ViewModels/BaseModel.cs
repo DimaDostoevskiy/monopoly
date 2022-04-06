@@ -9,6 +9,6 @@ namespace monopoly.web.ViewModels
         public String ImagePath { get; set; } = String.Empty;
         public String Class { get; set; } = String.Empty;
         public String? GetUrl { get; set; } = null;
-
+        
     }
 }
