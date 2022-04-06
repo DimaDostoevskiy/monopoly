@@ -16333,6 +16333,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Projects\\monopoly\\monopoly.web\\Views\\Game\\Planet.cshtml",
+      "TargetPath": "Views\\Game\\Planet.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Projects\\monopoly\\monopoly.web\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"

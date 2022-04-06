@@ -1,5 +1,5 @@
 function ClickOnElement(event, name) {
-  
+
   var card = document.getElementById("cardInfo");
   var elem = document.getElementById(name.id);
 
@@ -9,7 +9,7 @@ function ClickOnElement(event, name) {
   var url = "https://localhost:7232/Game/Info?name=" + name.id;
 
   var response = httpGet(url);
-  
+
   var arrJson = JSON.parse('[' + response + ']');
 
   card.innerText = arrJson[0].name;
@@ -24,16 +24,15 @@ function ClickOnElement(event, name) {
 function ClickOnArea(event) {
 
   var hero = document.getElementById("hero");
-  var card = document.getElementById("cardInfo");
-
   var e = event;
   let der = "";
 
   var heroX = parseInt(hero.style.left);
   var heroY = parseInt(hero.style.top);
+
   var cursorX = e.clientX;
   var cursorY = e.clientY;
-  
+
   if(cursorX > heroX) {
     der += "2";
   }
@@ -51,8 +50,17 @@ function ClickOnArea(event) {
 
   var response = httpGet(moveUrl);
   var arrJson = JSON.parse("[" + response + "]");
+
   hero.style.left = arrJson[0].positionX + "px";
   hero.style.top = arrJson[0].positionY + "px";
+
+  console.log(response);
+
+  if (arrJson[0].getUrl != null) {
+    window.location.href = arrJson[0].getUrl;
+  }
+
+  console.log(arrJson[0].getUrl);
 }
 
 function httpGet(url) {
@@ -62,13 +70,13 @@ function httpGet(url) {
   return xmlHttp.responseText;
 }
 
-function rightclick() {
-  var rightclick;
-  var e = window.event;
-  if (e.which) rightclick = (e.which == 3);
-  else if (e.button) rightclick = (e.button == 2);
-  alert(rightclick); // true or false, you can trap right click here by if comparison
-}
+// function rightclick() {
+//   var rightclick;
+//   var e = window.event;
+//   if (e.which) rightclick = (e.which == 3);
+//   else if (e.button) rightclick = (e.button == 2);
+//   alert(rightclick); // true or false, you can trap right click here by if comparison
+// }
 // function httpPost(url, object) {
 //   var result = "";
 //   xmlhttp = new XMLHttpRequest();
