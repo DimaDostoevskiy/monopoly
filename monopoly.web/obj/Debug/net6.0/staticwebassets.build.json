@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EgjgbtkL8kzl2NLJsC2pjhL7LUh4NObcZyvCVamqyS4=",
+  "Hash": "ujkPQtQQS2DM5BcBV4RaCBSBQSpyT0YCgBlNAz/0GD8=",
   "Source": "monopoly.web",
   "BasePath": "_content/monopoly.web",
   "Mode": "Default",
@@ -100,23 +100,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\area.js"
-    },
-    {
-      "Identity": "C:\\Projects\\monopoly\\monopoly.web\\wwwroot\\js\\site.js",
-      "SourceId": "monopoly.web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Projects\\monopoly\\monopoly.web\\wwwroot\\",
-      "BasePath": "_content/monopoly.web",
-      "RelativePath": "js/site.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
       "Identity": "C:\\Projects\\monopoly\\monopoly.web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
