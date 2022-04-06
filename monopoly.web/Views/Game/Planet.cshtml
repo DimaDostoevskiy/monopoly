@@ -1,0 +1,19 @@
+﻿@using monopoly.web.ViewModels;
+@model Planet
+@{
+	ViewData["Title"] = "Planet";
+}
+
+<div>
+	@if (Model == null)
+	{
+		<h1>No connect</h1>
+	}
+	else
+	{
+
+		<div class="planet-welcome">
+			<h4>Welcom to @Model.Name</h4>
+		</div>
+	}
+</div>

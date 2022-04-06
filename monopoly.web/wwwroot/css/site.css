@@ -29,3 +29,13 @@ body {
   width: 200px; 
   height: 200px;
   }
+  .planet-welcome{
+      position: absolute;
+      top: 80px;
+      width: 100%;
+      background-color: #41464b;
+      height: auto;
+      border-radius: 15px;
+      margin: auto;
+      text-decoration: line-through;
+  }

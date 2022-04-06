@@ -16,12 +16,16 @@ public class GameController : Controller
     }
     public JsonResult Move(string derection, string name)
     {
-        Log.Logger.Warning($" Move id : {name} | derection : {derection}");
+        Log.Logger.Warning($" Move Name : {name} | derection : {derection}");
 
         var obj = db.FirstOrDefault(x => x.Name == name);
 
         if (obj == null) return Json(null);
 
+        if(obj.GetUrl != null)
+        {
+            obj.GetUrl = null;
+        }
         if (derection.Contains("1"))
         {
             obj.PositionY -= 50;
@@ -38,16 +42,24 @@ public class GameController : Controller
         {
             obj.PositionX -= 50;
         }
+
+        var contactObject = db.FirstOrDefault(x => x.PositionX == obj.PositionX 
+                                                && x.PositionY == obj.PositionY 
+                                                && x.Name != obj.Name);
+        if (contactObject != null)
+        {
+            if (contactObject is Planet)
+            {
+                Log.Logger.Warning($"   Planet! {contactObject.Name}");
+                obj.GetUrl = "https://localhost:7232/Game/Planet?name=" + contactObject.Name;
+            }
+        }
         return Json(obj);
     }
-
+    [HttpGet]
+    public JsonResult Info(string? name) => Json(db.FirstOrDefault(x => x.Name == name));
+    [HttpGet]
     public IActionResult Area() => View(db);
-
-    public JsonResult Info(string? name)
-    {
-        if(name == null) return Json(null);
-
-        Log.Logger.Warning($"   Info name : {name} ");
-        return Json(db.FirstOrDefault(x => x.Name == name));
-    }
+    [HttpGet]
+    public IActionResult Planet(string name) => View(db.FirstOrDefault(x => x.Name == name));
 }
