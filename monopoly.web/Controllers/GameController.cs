@@ -62,4 +62,4 @@ public class GameController : Controller
     public IActionResult Area() => View(db);
     [HttpGet]
     public IActionResult Planet(string name) => View(db.FirstOrDefault(x => x.Name == name));
-}
+}       

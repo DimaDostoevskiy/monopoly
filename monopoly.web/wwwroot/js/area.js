@@ -18,7 +18,7 @@ function ClickOnElement(event, name) {
   card.style.top  = parseInt(elem.style.top) + 25 + "px"
 
   console.log("response: " +  response);
-  document.body.appendChild(card);
+  // document.body.appendChild(card);
 }
 
 function ClickOnArea(event) {
